@@ -1,0 +1,5 @@
+/*!
+ * smart-complete - 为input和textarea提供提示补全功能的AngularJS指令
+ * @version 2.0.1
+ * @link https://github.com/zskymn/smart-complete#readme
+ */ul.smart-complete{position:absolute;z-index:9999;overflow:auto;-moz-box-sizing:border-box;box-sizing:border-box;top:0;left:0;background:#fff;box-shadow:0 4px 5px rgba(0,0,0,.15);border:1px solid #aaa;padding:5px 0;margin:0;word-break:break-all;word-wrap:break-word;font-size:14px;line-height:18px}ul.smart-complete li{padding:4px 10px}ul.smart-complete li.current-selected{color:#fff;background-color:#438eb9;cursor:pointer}
