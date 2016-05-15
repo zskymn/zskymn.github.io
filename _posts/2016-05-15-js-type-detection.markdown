@@ -46,9 +46,9 @@ Null类型只有一个值，即`null`(区分大小写)，表示一个空对象�
 var a = new Object();
 ```
 
-Object类型所具有的任何属性和方法也同样存在于更具体的对象中（如`Array`等）,Object的每个实例都具有下列属性和方法：
+Object类型所具有的任何属性和方法也同样存在于更具体的对象中（如`Array`等），Object的每个实例都具有下列属性和方法：
 
-* `Constructor`：保存着用于创建当前对象的函数。
+* `constructor`：保存着用于创建当前对象的函数。
 * `hasOwnProperty(propertyName)`：用于检查给定的属性在当前对象实例中（而不是实例的原型中）是否存在。
 * `isPrototypeOf(object1)`：检查该对象实例是否在对象`object1`的原型链中。
 * `propertyIsEnumerable(propertyName)`：检查给定的属性是否可以使用`for-in`语句来枚举
@@ -57,3 +57,57 @@ Object类型所具有的任何属性和方法也同样存在于更具体的对�
 * `valueOf()`：返回对象的字符串、数值或布尔值表示。通常与`toString()`方法的返回值相同。
 
 ## JavaScript类型检测
+本文主要提供检测JavaScript内置类型的方法
+
+#### String、Number、Boolean和Undefined类型的检测
+这些类型的检测使用`typeof`方法就可以做到
+
+```javascript
+typeof('Hello World'); // 'string'
+typeof(1); // 'number'
+typeof(undefined); // 'undefined'
+typeof(true); // 'boolean'
+```
+
+#### Null类型的检测
+Null不能使用`typeof`直接判断，但可以使用`null===null`判断
+
+```javascript
+var a = null,
+  b = {};
+typeof(a); // 'object'
+a === null; // true
+a ? typeof(a) : 'null' // 'null'
+b ? typeof(b) : 'null'; // 'object'
+```
+
+#### Date、Array、RegExp、Function和Error类型的检测
+这些类型用`typeof`检测都是"object"，所以需要用`Object.prototype.toString.call()`来检测
+
+```javascript
+var a = new Date(),
+  b = [],
+  c = /^\w+$/,
+  d = function(){},
+  e = new Error(),
+  _toString = Object.prototype.toString.call;
+
+_toString(a); // '[Object Date]'
+_toString(b); // '[Object Array]'
+_toString(c); // '[Object RegExp]'
+_toString(d); // '[Object Function]'
+_toString(e); // '[Object Error]'
+```
+
+#### 非内置对象
+对于非内置对象，需要使用对象的`constructor`属性和`instanceof`运算符来实现
+
+```javascript
+function F1(){
+  this.a = 'a';
+}
+
+var f1 = new F1();
+f1 instanceof F1; // true
+f1.constructor.name // 'F1'
+```
