@@ -18,8 +18,8 @@ JavaScript共有6种数据类型，包括5种基本数据类型（String、Numbe
 String，即字符串，是有16位的Unicode字符组成的字符序列。字符串属于不可变类型，一旦创建，其值就不可改变。
 
 ```javascript
-var str = 'Hello'
-str = str + ' World'
+var str = 'Hello';
+str = str + ' World';
 ```
 上述示例中变量`str`初始时包含字符串"Hello"，而第二行把`str`重新定义为"Hello"和" World"的组合，这个操作的实际过程如下：
 
@@ -77,7 +77,7 @@ var a = null,
   b = {};
 typeof(a); // 'object'
 a === null; // true
-a ? typeof(a) : 'null' // 'null'
+a ? typeof(a) : 'null'; // 'null'
 b ? typeof(b) : 'null'; // 'object'
 ```
 
@@ -109,5 +109,5 @@ function F1(){
 
 var f1 = new F1();
 f1 instanceof F1; // true
-f1.constructor.name // 'F1'
+f1.constructor.name; // 'F1'
 ```
