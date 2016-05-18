@@ -1,3 +1,4 @@
 http://zskymn.github.io/
 http://zskymn.github.io/2016/05/09/my-first-post/
 http://zskymn.github.io/2016/05/15/js-type-detection/
+http://zskymn.github.io/2016/05/18/element-align-by-css/
